@@ -1,0 +1,19 @@
+@model Product
+
+<h1>Edit @Model.Item</h1>
+<form asp-action="Edit">
+    <div class="form-group">
+        <label asp-for="Item"></label>
+        <input asp-for="Item" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control">
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>

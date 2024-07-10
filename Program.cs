@@ -1,7 +1,10 @@
+using e_commerce_pp.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<MongoDbContext>();
 
 var app = builder.Build();
 
@@ -13,7 +16,9 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection(); Commented to avoid following warning: warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+//                                                                        Failed to determine the https port for redirect.
+
 app.UseStaticFiles();
 
 app.UseRouting();
