@@ -1,19 +1,55 @@
 @model Product
 
-<h1>Create new product</h1>
-
-<form asp-action="Create">
-    <div class="form-group">
-        <label asp-for="Item"></label>
-        <input asp-for="Item" class="form-control" />
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h2>Create New Product</h2>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" method="post">
+                <div class="form-group row align-items-center">
+                    <label asp-for="Item" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10 input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-0" style="height: calc(1.5em + .75rem + 2px);">
+                                <i class="fas fa-box p-2"></i>
+                            </div>
+                        </div>
+                        <input asp-for="Item" class="form-control" />
+                        <span asp-validation-for="Item" class="text-danger ml-3"></span>
+                    </div>
+                </div>
+                <div class="form-group row align-items-center">
+                    <label asp-for="Description" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10 input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-0" style="height: calc(1.5em + .75rem + 2px);">
+                                <i class="fas fa-info-circle p-2"></i>
+                            </div>
+                        </div>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger ml-3"></span>
+                    </div>
+                </div>
+                <div class="form-group row align-items-center">
+                    <label asp-for="Price" class="col-sm-2 col-form-label"></label>
+                    <div class="col-sm-10 input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text p-0" style="height: calc(1.5em + .75rem + 2px);">
+                                <i class="fas fa-dollar-sign p-2"></i>
+                            </div>
+                        </div>
+                        <input asp-for="Price" class="form-control" />
+                        <span asp-validation-for="Price" class="text-danger ml-3"></span>
+                    </div>
+                </div>
+                <div class="form-group row mt-1">
+                    <div class="col d-flex flex-row-reverse">
+                        <button type="submit" class="btn btn-primary m-1">Create</button>
+                        <a asp-action="Index" class="btn btn-secondary m-1">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label asp-for="Description"></label>
-        <input asp-for="Description" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="Price"></label>
-        <input asp-for="Price" class="form-control" />
-    </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+</div>
